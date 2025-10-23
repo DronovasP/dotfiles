@@ -1,0 +1,17 @@
+[[session]]
+name = "tmux conf"
+path = "~/.config/tmux"
+startup_command = "nvim tmux.conf"
+preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
+
+[[session]]
+name = "sesh conf"
+path = "~/.config/sesh"
+startup_command = "nvim sesh.toml"
+preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
+
+[[session]]
+name = "nvim conf"
+path = "~/.config/nvim/lua/profke"
+startup_command = "nvim ."
+preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
