@@ -67,7 +67,7 @@ done
 
 if [ ${#packages_to_install[@]} -gt 0 ]; then
   echo "Updating system and installing missing packages: ${packages_to_install[*]}"
-  sudo pacman -Syu --noconfirm "${packages_to_install[@]}"
+  sudo pacman -Syy --noconfirm "${packages_to_install[@]}"
 else
   echo "All pacman packages already installed."
 fi
