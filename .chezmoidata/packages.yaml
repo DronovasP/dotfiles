@@ -1,0 +1,16 @@
+packages:
+  common:
+    - neovim
+    - tmux
+    - zsh
+    - ripgrep
+    - fzf
+    - htop
+
+  darwin:
+    brews:
+      - git
+    casks:
+  
+  arch:
+    - git

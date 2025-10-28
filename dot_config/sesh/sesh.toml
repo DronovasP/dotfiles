@@ -8,10 +8,16 @@ preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
 name = "sesh conf"
 path = "~/.config/sesh"
 startup_command = "nvim sesh.toml"
-preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
+preview_command = "bat --color=always ~/.config/sesh/sesh.toml"
 
 [[session]]
 name = "nvim conf"
 path = "~/.config/nvim/lua/profke"
 startup_command = "nvim ."
-preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
+preview_command = "bat --color=always ~/.config/nvim"
+
+[[session]]
+name = "hypr conf"
+path = "~/.config/hypr/"
+startup_command = "nvim ."
+preview_command = "bat --color=always ~/.config/hypr"

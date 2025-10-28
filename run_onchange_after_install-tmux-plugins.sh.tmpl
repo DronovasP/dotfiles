@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# This script runs only when the content of the managed tmux.conf changes.
+# Checksum: {{ include "tmux/tmux.conf" | sha256sum }}
+
+set -e
+
+TPM_INSTALL_SCRIPT="$HOME/.tmux/plugins/tpm/bin/install_plugins"
+
+if [ -f "$TPM_INSTALL_SCRIPT" ]; then
+  echo "Tmux config has changed. Installing/updating plugins..."
+  "$TPM_INSTALL_SCRIPT"
+  echo "Tmux plugins updated."
+else
+  echo "TPM install script not found at $TPM_INSTALL_SCRIPT."
+  echo "It will be run on the next 'chezmoi apply' after TPM is cloned."
+fi

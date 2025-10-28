@@ -1,0 +1,79 @@
+#!/bin/bash
+#
+# Checksum: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
+set -e
+
+{{ if eq .chezmoi.os "darwin" -}}
+echo "Checking Homebrew packages..."
+
+mapfile -t brew_packages < <(
+  {{- range .packages.common }}
+  echo {{ . | quote }}
+  {{- end }}
+  {{- range .packages.darwin.brews }}
+  echo {{ . | quote }}
+  {{- end }}
+)
+
+packages_to_install=()
+for pkg in "${brew_packages[@]}"; do
+  if ! brew list "$pkg" &>/dev/null; then
+    packages_to_install+=("$pkg")
+  fi
+done
+
+if [ ${#packages_to_install[@]} -gt 0 ]; then
+  echo "Installing brew packages: ${packages_to_install[*]}"
+  brew install "${packages_to_install[@]}"
+else
+  echo "All brew packages already installed."
+fi
+
+# --- Casks ---
+packages_to_install=()
+for pkg in {{ .packages.darwin.casks | join " " }}; do
+  if ! brew list --cask "$pkg" &>/dev/null; then
+    packages_to_install+=("$pkg")
+  fi
+done
+
+if [ ${#packages_to_install[@]} -gt 0 ]; then
+  echo "Installing brew casks: ${packages_to_install[*]}"
+  brew install --cask "${packages_to_install[@]}"
+else
+  echo "All brew casks already installed."
+fi
+
+
+{{ else if (eq .chezmoi.osRelease.id "arch") -}}
+echo "Checking pacman packages..."
+
+mapfile -t pacman_packages < <(
+  {{- range .packages.common }}
+  echo {{ . | quote }}
+  {{- end }}
+  {{- range .packages.arch }}
+  echo {{ . | quote }}
+  {{- end }}
+)
+
+packages_to_install=()
+for pkg in "${pacman_packages[@]}"; do
+  # Use pacman -Q to check if package is installed
+  if ! pacman -Q "$pkg" &>/dev/null; then
+    packages_to_install+=("$pkg")
+  fi
+done
+
+if [ ${#packages_to_install[@]} -gt 0 ]; then
+  echo "Updating system and installing missing packages: ${packages_to_install[*]}"
+  sudo pacman -Syu --noconfirm "${packages_to_install[@]}"
+else
+  echo "All pacman packages already installed."
+fi
+
+{{ else }}
+echo "No package installation logic for this OS."
+{{ end -}}
+
+echo "Package installation script complete."
