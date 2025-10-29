@@ -1,23 +1,23 @@
 [[session]]
 name = "tmux conf"
-path = "~/.config/tmux"
+path = "~/.local/share/chezmoi/dot_config/tmux/tmux.conf"
 startup_command = "nvim tmux.conf"
-preview_command = "bat --color=always ~/.config/tmux/tmux.conf"
+preview_command = "bat --color=always ~/.local/share/chezmoi/dot_config/tmux/tmux.conf"
 
 [[session]]
 name = "sesh conf"
-path = "~/.config/sesh"
+path = "~/.local/share/chezmoi/dot_config/sesh/sesh.toml"
 startup_command = "nvim sesh.toml"
-preview_command = "bat --color=always ~/.config/sesh/sesh.toml"
+preview_command = "bat --color=always ~/.local/share/chezmoi/dot_config/sesh/sesh.toml"
 
 [[session]]
 name = "nvim conf"
-path = "~/.config/nvim/lua/profke"
+path = "~/.local/share/chezmoi/dot_config/nvim/lua/profke"
 startup_command = "nvim ."
-preview_command = "bat --color=always ~/.config/nvim"
+preview_command = "bat --color=always ~/.local/share/chezmoi/dot_config/nvim/lua/profke"
 
 [[session]]
 name = "hypr conf"
-path = "~/.config/hypr/"
+path = "~/.local/share/chezmoi/dot_config/hypr"
 startup_command = "nvim ."
-preview_command = "bat --color=always ~/.config/hypr"
+preview_command = "bat --color=always ~/.local/share/chezmoi/dot_config/hypr"
