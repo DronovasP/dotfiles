@@ -1,8 +1,8 @@
-[[session]]
-name = "tmux conf"
-path = "~/.local/share/chezmoi/dot_config/tmux"
-startup_command = "nvim tmux.conf"
-preview_command = "bat --color=always ~/.local/share/chezmoi/dot_config/tmux/tmux.conf"
+# [default_session]
+# startup_command = "nvim"
+# path = {}
+# windows = [ "lazygit", "test" ]
+
 
 [[session]]
 name = "sesh conf"
@@ -10,19 +10,10 @@ path = "~/.local/share/chezmoi/dot_config/sesh"
 startup_command = "nvim sesh.toml"
 preview_command = "bat --color=always ~/.local/share/chezmoi/dot_config/sesh/sesh.toml"
 
-[[session]]
-name = "nvim conf"
-path = "~/.local/share/chezmoi/dot_config/nvim/lua/profke"
-startup_command = "nvim ."
-preview_command = "bat --color=always ~/.local/share/chezmoi/dot_config/nvim/lua/profke"
+[[window]]
+name = "lazygit"
+startup_script = "lazygit"
 
-[[session]]
-name = "hypr conf"
-path = "~/.local/share/chezmoi/dot_config/hypr"
-startup_command = "nvim ."
-preview_command = "bat --color=always ~/.local/share/chezmoi/dot_config/hypr"
-
-[[session]]
-name = "chezmoi"
-path = "~/.local/share/chezmoi/"
-startup_command = "nvim ."
+[[window]]
+name = "test"
+startup_script = ""
