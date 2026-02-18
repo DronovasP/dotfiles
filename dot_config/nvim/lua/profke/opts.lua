@@ -1,8 +1,7 @@
 local opt = vim.opt
 
 opt.wildmenu = true
-opt.wildmode = 'list:longest,full'
-
+opt.wildmode = "list:longest,full"
 -- Tab / Indentation
 opt.tabstop = 2
 opt.shiftwidth = 2

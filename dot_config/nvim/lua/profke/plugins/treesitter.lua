@@ -13,18 +13,16 @@ return {
 				"luadoc",
 				"markdown",
 				"markdown_inline",
-				"query",
+				"zig",
 				"vim",
 				"vimdoc",
-				"odin",
 			},
-			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = { "ruby" },
 			},
-			indent = { enable = true, disable = { "ruby" } },
+			indent = { enable = true, disable = { "ruby", "typescript", "javascript", "tsx" } },
 		},
 	},
 }
