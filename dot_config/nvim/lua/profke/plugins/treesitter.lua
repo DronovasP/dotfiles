@@ -1,10 +1,10 @@
 vim.pack.add({
     "https://github.com/nvim-treesitter/nvim-treesitter",
-})
+}, { load = true })
 
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
-        require("nvim-treesitter.configs").setup({
+        require("nvim-treesitter.config").setup({
             ensure_installed = {
                 "bash",
                 "c",

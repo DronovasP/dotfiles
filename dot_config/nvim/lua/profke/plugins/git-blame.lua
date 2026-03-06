@@ -1,6 +1,6 @@
 vim.pack.add({
     "https://github.com/f-person/git-blame.nvim",
-})
+}, { load = true })
 
 vim.api.nvim_create_autocmd("VimEnter", {
     once = true,

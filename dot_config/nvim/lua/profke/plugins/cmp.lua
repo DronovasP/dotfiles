@@ -3,7 +3,7 @@ vim.pack.add({
     "https://github.com/hrsh7th/cmp-nvim-lsp",
     "https://github.com/hrsh7th/cmp-buffer",
     "https://github.com/hrsh7th/cmp-path",
-})
+}, { load = true })
 
 vim.api.nvim_create_autocmd("BufEnter", {
     once = true,
