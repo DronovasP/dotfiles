@@ -1,5 +1,17 @@
 return {
-  init_options = { hostInfo = 'neovim' },
+  init_options = {
+    hostInfo = 'neovim',
+    preferences = {
+      includeInlayParameterNameHints = 'all',
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = true,
+      includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayEnumMemberValueHints = true,
+    },
+  },
   cmd = { 'typescript-language-server', '--stdio' },
   filetypes = {
     'javascript',

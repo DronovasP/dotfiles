@@ -41,13 +41,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
                 },
             },
             spec = {
-                { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-                { "<leader>d", group = "[D]ocument" },
-                { "<leader>r", group = "[R]ename" },
-                { "<leader>f", group = "[F]ind" },
-                { "<leader>w", group = "[W]orkspace" },
-                { "<leader>t", group = "[T]ab" },
-                { "<leader>tm", group = "[T]ab [M]ove" },
+                { "<leader>g", group = "[G]it" },
+                { "<leader>s", group = "[S]earch" },
+                { "<leader>t", group = "[T]asks" },
             },
         })
     end,

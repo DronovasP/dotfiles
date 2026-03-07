@@ -8,10 +8,16 @@ vim.api.nvim_create_autocmd("BufReadPre", {
         local conform = require("conform")
         conform.setup({
             formatters_by_ft = {
-                javascript = { "prettier" },
-                typescript = { "prettier" },
-                javascriptreact = { "prettier" },
-                typescriptreact = { "prettier" },
+                javascript = { "prettierd" },
+                typescript = { "prettierd" },
+                javascriptreact = { "prettierd" },
+                typescriptreact = { "prettierd" },
+                json = { "prettierd" },
+                jsonc = { "prettierd" },
+                css = { "prettierd" },
+                html = { "prettierd" },
+                yaml = { "prettierd" },
+                markdown = { "prettierd" },
                 c = { "clang-format" },
                 cpp = { "clang-format" },
                 zig = { "zls" },

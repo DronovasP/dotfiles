@@ -49,12 +49,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
         pcall(telescope.load_extension, "fzf")
         pcall(telescope.load_extension, "ui-select")
 
+        vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Grep current buffer" })
         vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[F]ind Files" })
-        vim.keymap.set("n", "<leader>g", builtin.live_grep, { desc = "[G]rep Text" })
+        vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch [G]rep" })
+        vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
         vim.keymap.set("n", "<leader>k", builtin.keymaps, { desc = "[K]eymaps" })
         vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "[B]uffer List" })
         vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "[H]elp Tags" })
-        vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
     end,
 })
 
