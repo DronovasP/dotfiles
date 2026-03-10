@@ -17,7 +17,7 @@ opt.hlsearch = false
 opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 10
-opt.completeopt = "menuone,noinsert,noselect"
+opt.completeopt = "menuone,noinsert"
 
 -- Behaviour
 opt.swapfile = false
