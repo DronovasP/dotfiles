@@ -1,0 +1,36 @@
+vim.pack.add({
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/MunifTanjim/nui.nvim",
+})
+
+vim.pack.add({
+	"https://github.com/yetone/avante.nvim",
+})
+
+vim.cmd.packadd("avante.nvim")
+
+avante.setup({
+	provider = "openrouter",
+	providers = {
+		openrouter = {
+			__inherited_from = "openai",
+			endpoint = "https://openrouter.ai/api/v1",
+			api_key_name = "{{ env "AVANTE_API_KEY" }}",
+			model = "deepseek/deepseek-r1",
+		},
+	},
+	suggestion = {
+		debounce = 600,
+		throttle = 600,
+	},
+	behaviour = {
+		auto_suggestions = true,
+		auto_set_keymaps = true,
+		auto_approve_tool_permissions = true,
+	},
+	windows = {
+		position = "right",
+		width = 30,
+	},
+})
+

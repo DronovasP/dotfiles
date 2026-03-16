@@ -1,5 +1,6 @@
 require("profke.plugins.flash")
 require("profke.plugins.adwaita-nvim")
+require("profke.plugins.avante")
 require("profke.plugins.conform")
 require("profke.plugins.mini-pairs")
 require("profke.plugins.git-blame")
