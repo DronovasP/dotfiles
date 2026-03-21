@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Playwright: Run cursor line",
+    "command": "npx",
+    "args": ["playwright", "test", "$ZED_RELATIVE_FILE:$ZED_ROW"],
+    "tags": ["javascript-test", "typescript-test"],
+    "reveal": "always",
+    "allow_concurrent_runs": false,
+  },
+  {
+    "label": "Playwright: Run specific test",
+    "command": "npx",
+    "args": ["playwright", "test", "$ZED_FILE", "-g", "$ZED_SYMBOL"],
+    "tags": ["javascript-test", "typescript-test"],
+    "reveal": "always",
+    "allow_concurrent_runs": false,
+  },
+  {
+    "label": "Playwright: Run current file",
+    "command": "npx",
+    "args": ["playwright", "test", "$ZED_FILE"],
+    "reveal": "always",
+    "allow_concurrent_runs": false,
+  },
+  {
+    "label": "lazygit",
+    "command": "lazygit",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "center",
+    "hide": "on_success",
+  },
+]
