@@ -1,0 +1,77 @@
+[
+  {
+    "bindings": {
+      "shift-q": "workspace::CloseActiveDock",
+      "ctrl-b ctrl-x": "projects::OpenRecent",
+      "ctrl-w o": "workspace::ToggleAllDocks",
+    },
+  },
+  {
+    "context": "VimControl",
+    "bindings": {
+      "space e": "pane::RevealInProjectPanel",
+      "space f": "file_finder::Toggle",
+      "space c": "terminal_panel::ToggleFocus",
+      "space b": "outline_panel::ToggleFocus",
+      "space g": "git_panel::ToggleFocus",
+      "space d": "debug_panel::ToggleFocus",
+      "space a c": "agent::NewExternalAgentThread",
+      "space a i": "agent::AddSelectionToThread",
+    },
+  },
+  {
+    "context": "FileFinder",
+    "bindings": {
+      "ctrl-v": "pane::SplitRight",
+      "ctrl-x": "pane::SplitDown",
+    },
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "space s w": "pane::DeploySearch",
+      "space w": "workspace::Save",
+      "space g g": ["task::Spawn", { "task_name": "lazygit" }],
+      "space t s": "task::Spawn",
+      "space t r": "task::Rerun",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+      "ctrl-t": "workspace::ToggleBottomDock",
+      "ctrl-b c": "workspace::NewTerminal",
+      "ctrl-b x": "pane::CloseActiveItem",
+      "ctrl-b n": "pane::ActivateNextItem",
+      "ctrl-b p": "pane::ActivateLastItem",
+      "ctrl-b 1": ["pane::ActivateItem", 0],
+      "ctrl-b 2": ["pane::ActivateItem", 1],
+      "ctrl-b 3": ["pane::ActivateItem", 2],
+      "ctrl-b 4": ["pane::ActivateItem", 3],
+      "ctrl-b 5": ["pane::ActivateItem", 4],
+      "ctrl-b %": "pane::SplitRight",
+      "ctrl-b \"": "pane::SplitDown",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "q": "workspace::ToggleRightDock",
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+    },
+  },
+]
