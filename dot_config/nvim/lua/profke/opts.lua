@@ -16,7 +16,9 @@ opt.hlsearch = false
 -- Appearance
 opt.number = true
 opt.relativenumber = true
-opt.scrolloff = 10
+opt.scrolloff = 0
+opt.mousescroll = "ver:1"
+opt.mousefocus = false
 opt.completeopt = "menuone,noinsert"
 
 -- Behaviour

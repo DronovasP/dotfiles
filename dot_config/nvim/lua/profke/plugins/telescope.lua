@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
             defaults = {
                 file_sorter = sorters.get_fzf_sorter,
                 generic_sorter = sorters.get_fzf_sorter,
-                file_ignore_patterns = { ".git/", "node_modules" },
+                file_ignore_patterns = { ".git/", "node_modules", "results/" },
                 vimgrep_arguments = {
                     "rg",
                     "--color=never",
