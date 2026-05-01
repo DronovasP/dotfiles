@@ -4,14 +4,7 @@ packages:
     - tmux
     - zsh
     - ripgrep
+    - ghostty
     - fzf
     - htop
     - lazygit
-
-  darwin:
-    brews:
-      - git
-    casks:
-  
-  arch:
-    - git
