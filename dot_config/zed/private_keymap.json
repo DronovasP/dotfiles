@@ -21,6 +21,7 @@
       "space a t": "agent::Toggle",
       "space s w": "pane::DeploySearch",
       "space w": "workspace::Save",
+      "space t g": ["task::Spawn", { "task_name": "lazygit" }],
       "space t s": "task::Spawn",
       "space t r": "task::Rerun",
     },
