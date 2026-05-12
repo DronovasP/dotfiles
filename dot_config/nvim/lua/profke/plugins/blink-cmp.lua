@@ -8,22 +8,12 @@ require("blink.cmp").setup({
         ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
         ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
-        ["<A-y>"] = require("minuet").make_blink_map(),
     },
     appearance = {
         nerd_font_variant = "mono",
     },
     sources = {
-        default = { "lsp", "path", "snippets", "buffer", "minuet" },
-        providers = {
-            minuet = {
-                name = "minuet",
-                module = "minuet.blink",
-                async = true,
-                timeout_ms = 3000,
-                score_offset = 50,
-            },
-        },
+        default = { "lsp", "path", "snippets", "buffer" },
     },
     fuzzy = {
         implementation = "lua",
