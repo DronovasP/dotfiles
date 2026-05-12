@@ -1,42 +1,6 @@
-# [default_session]
-# startup_command = "nvim"
-
-[[session]]
-name = "bioma-playwright-e2e"
-path = "~/repos/bioma-playwright-e2e"
+[default_session]
 startup_command = "nvim"
-windows = ["zsh"]
 
-[[session]]
-name = "colonbroom-playwright-e2e"
-path = "~/repos/colonbroom-playwright-e2e"
-startup_command = "nvim"
-windows = ["zsh"]
-
-[[session]]
-name = "getcolonbroom-playwright-e2e"
-path = "~/repos/getcolonbroom-playwright-e2e"
-startup_command = "nvim"
-windows = ["zsh"]
-
-[[session]]
-name = "herbodhi-playwright-e2e"
-path = "~/repos/herbodhi-playwright-e2e"
-startup_command = "nvim"
-windows = ["zsh"]
-
-[[session]]
-name = "burnbox-playwright-e2e"
-path = "~/repos/burnbox-playwright-e2e"
-startup_command = "nvim"
-windows = ["zsh"]
-
-[[session]]
-name = "chezmoi"
-path = "~/.local/share/chezmoi/dot_config/"
-startup_command = "nvim"
-windows = ["zsh"]
-
-
-[[window]]
-name = "zsh"
+[[default_session.window]]
+name = "pi"
+startup_command = "tmux split-window -h -d && pi"
