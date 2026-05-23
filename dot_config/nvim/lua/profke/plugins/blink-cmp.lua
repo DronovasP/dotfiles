@@ -1,8 +1,7 @@
-vim.pack.add({
-    "https://github.com/Saghen/blink.cmp",
-}, { load = true })
-
-require("blink.cmp").setup({
+vim.pack.add({ 'saghen/blink.lib', 'saghen/blink.cmp' })
+local cmp = require('blink.cmp')
+cmp.build():wait(60000)
+cmp.setup({
     keymap = {
         preset = "default",
         ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
