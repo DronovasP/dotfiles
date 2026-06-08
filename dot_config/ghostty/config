@@ -2,3 +2,4 @@ macos-option-as-alt = true
 theme = Adwaita Dark
 shell-integration-features = ssh-terminfo,ssh-env
 font-family = Monocraft
+mouse-scroll-multiplier = 1
