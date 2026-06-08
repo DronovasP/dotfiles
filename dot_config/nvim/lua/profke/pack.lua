@@ -1,16 +1,6 @@
-require("profke.plugins.adwaita-nvim")
-require("profke.plugins.conform")
-require("profke.plugins.mini-pairs")
-require("profke.plugins.git-blame")
-require("profke.plugins.lazygit")
-require("profke.plugins.mason")
-require("profke.plugins.lspconfig")
-require("profke.plugins.persistance")
-require("profke.plugins.tasks")
-require("profke.plugins.telescope")
-require("profke.plugins.treesitter")
-require("profke.plugins.which-key")
--- require("profke.plugins.minuet-ai")
-require("profke.plugins.blink-cmp")
-require("profke.plugins.codecompanion")
-require("profke.plugins.yazi")
+local plugin_dir = vim.fn.stdpath("config") .. "/lua/profke/plugins"
+
+for _, path in ipairs(vim.fn.glob(plugin_dir .. "/*.lua", false, true)) do
+    local name = vim.fn.fnamemodify(path, ":t:r")
+    require("profke.plugins." .. name)
+end
