@@ -1,3 +1,3 @@
 whatahelly
 
-`chezmoi init --apply https://github.com/DronovasP/dotfiles.git`
+`sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply DronovasP`
