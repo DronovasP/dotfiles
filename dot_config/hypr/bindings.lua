@@ -68,5 +68,5 @@ end
 o.rebind("ALT + SPACE", "Launcher (Vicinae)", "vicinae toggle")
 
 -- One-key display switching (two stacked monitors, so "next" = "the other one").
-o.bind("SUPER + GRAVE", "Focus other monitor", hl.dsp.focus({ monitor = "+1" }))
-o.bind("SUPER + SHIFT + GRAVE", "Move window to other monitor", hl.dsp.window.move({ monitor = "+1" }))
+o.bind("SUPER + U", "Focus other monitor", hl.dsp.focus({ monitor = "+1" }))
+o.bind("SUPER + SHIFT + U", "Move window to other monitor", hl.dsp.window.move({ monitor = "+1" }))
