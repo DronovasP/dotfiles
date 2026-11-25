@@ -86,3 +86,7 @@ do
     end
   end)
 end
+
+-- Escape cancels a Handy dictation (Handy's own Escape shortcut doesn't fire).
+-- Non-consuming: Escape still reaches the focused app as usual.
+o.bind("Escape", "Cancel dictation (Handy)", "handy-cancel-if-recording", { non_consuming = true })

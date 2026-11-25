@@ -1,0 +1,8 @@
+#!/bin/bash
+# Escape cancels a Handy dictation. Handy's own "cancel" shortcut never fires on
+# this setup, so Hyprland runs this on every Escape (non-consuming, so apps still
+# get the key). Only act while Handy holds the mic: its capture stream shows up
+# in PulseAudio as "cpal-pulseaudio-<handy pid>".
+pid=$(pgrep -x -o handy) || exit 0
+pactl list source-outputs 2>/dev/null | grep -q "application.name = \"cpal-pulseaudio-$pid\"" || exit 0
+exec handy --cancel >/dev/null 2>&1
