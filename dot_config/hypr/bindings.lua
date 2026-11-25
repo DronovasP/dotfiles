@@ -73,7 +73,7 @@ o.bind("SUPER + SHIFT + U", "Move window to other monitor", hl.dsp.window.move({
 
 -- Replaces Super+` (was: Toggle Quake console running `claude`) with a new
 -- T3 Code thread: focus T3 (starting it if needed), then press T3's own
--- "new thread" shortcut, Ctrl+Shift+O.
+-- "new thread without project" shortcut, Ctrl+Alt+N (no project picker).
 do
   local T3_CLASS = "com.t3tools.T3Code"
 
@@ -92,7 +92,7 @@ do
 
   local function open_new_thread(window)
     hl.dispatch(hl.dsp.focus({ window = "address:" .. window.address }))
-    hl.timer(function() press("CTRL SHIFT", "O") end, { timeout = 150, type = "oneshot" })
+    hl.timer(function() press("CTRL ALT", "N") end, { timeout = 150, type = "oneshot" })
   end
 
   -- T3 takes a few seconds to start; wait for its window, up to ~15s.
