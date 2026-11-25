@@ -72,5 +72,47 @@ o.bind("SUPER + U", "Focus other monitor", hl.dsp.focus({ monitor = "+1" }))
 o.bind("SUPER + SHIFT + U", "Move window to other monitor", hl.dsp.window.move({ monitor = "+1" }))
 
 -- Replaces Super+` (was: Toggle Quake console running `claude`) with a new
--- T3 Code thread. t3code://new starts T3 if needed and opens a blank thread.
-o.rebind("SUPER + grave", "New T3 Code thread", "xdg-open t3code://new")
+-- T3 Code thread: focus T3 (starting it if needed), then press T3's own
+-- "new thread" shortcut, Ctrl+Shift+O.
+do
+  local T3_CLASS = "com.t3tools.T3Code"
+
+  local function t3_window()
+    for _, window in ipairs(hl.get_windows()) do
+      if window.class == T3_CLASS then return window end
+    end
+  end
+
+  local function press(mods, key)
+    hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "down" }))
+    hl.timer(function()
+      hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "up" }))
+    end, { timeout = 50, type = "oneshot" })
+  end
+
+  local function open_new_thread(window)
+    hl.dispatch(hl.dsp.focus({ window = "address:" .. window.address }))
+    hl.timer(function() press("CTRL SHIFT", "O") end, { timeout = 150, type = "oneshot" })
+  end
+
+  -- T3 takes a few seconds to start; wait for its window, up to ~15s.
+  local function when_t3_ready(tries)
+    local window = t3_window()
+    if window then
+      -- Give the UI a moment to load before pressing the shortcut.
+      hl.timer(function() open_new_thread(window) end, { timeout = 1500, type = "oneshot" })
+    elseif tries > 0 then
+      hl.timer(function() when_t3_ready(tries - 1) end, { timeout = 250, type = "oneshot" })
+    end
+  end
+
+  o.rebind("SUPER + grave", "New T3 Code thread", function()
+    local window = t3_window()
+    if window then
+      open_new_thread(window)
+    else
+      hl.exec_cmd("uwsm-app -- gtk-launch t3code")
+      when_t3_ready(60)
+    end
+  end)
+end
