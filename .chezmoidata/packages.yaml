@@ -11,5 +11,6 @@ packages:
   arch:
     pacman:
       - chezmoi
+      - keyd          # Caps: tap = Esc, hold = Super
     aur:
       - vicinae-bin   # Raycast-style launcher (Alt+Space)

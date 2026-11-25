@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+# Re-runs when the keyd config changes. keyd reads /etc, which chezmoi doesn't
+# manage, so copy the tracked file there.
+# keyd config hash: {{ include "dot_config/keyd/default.conf" | sha256sum }}
+set -euo pipefail
+command -v keyd >/dev/null || { echo "keyd not installed; skipping" >&2; exit 0; }
+sudo install -Dm644 "$HOME/.config/keyd/default.conf" /etc/keyd/default.conf
+sudo systemctl enable --now keyd
+sudo keyd reload || true
+{{ end -}}
