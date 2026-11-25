@@ -6,10 +6,16 @@ set -euo pipefail
 {{ if and (eq .chezmoi.os "linux") (or (eq .chezmoi.osRelease.id "arch") (contains "arch" (.chezmoi.osRelease.idLike | default ""))) -}}
 sudo pacman -S --needed --noconfirm {{ range .packages.common }}{{ . }} {{ end }}{{ range .packages.arch.pacman }}{{ . }} {{ end }}
 
-if command -v yay >/dev/null; then
+if command -v paru >/dev/null; then
+  paru -S --needed --noconfirm {{ range .packages.arch.aur }}{{ . }} {{ end }}
+elif command -v yay >/dev/null; then
   yay -S --needed --noconfirm {{ range .packages.arch.aur }}{{ . }} {{ end }}
 else
   echo "yay not found; skipping AUR packages: {{ range .packages.arch.aur }}{{ . }} {{ end }}" >&2
+fi
+
+if command -v flatpak >/dev/null; then
+  flatpak install --user -y --noninteractive flathub {{ range .packages.flatpak }}{{ . }} {{ end }}
 fi
 {{- else if eq .chezmoi.os "darwin" -}}
 brew install {{ range .packages.common }}{{ . }} {{ end }}

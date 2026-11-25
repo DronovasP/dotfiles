@@ -13,4 +13,7 @@ packages:
       - chezmoi
       - keyd          # Caps: tap = Esc, hold = Super
     aur:
+      - paru          # AUR helper (built from source: paru-bin links OpenSSL 4)
       - vicinae-bin   # Raycast-style launcher (Alt+Space)
+  flatpak:
+    - com.stremio.Stremio   # AUR stremio needs qt5-webengine (AUR, hours to compile)
