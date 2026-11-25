@@ -70,3 +70,7 @@ o.rebind("ALT + SPACE", "Launcher (Vicinae)", "vicinae toggle")
 -- One-key display switching (two stacked monitors, so "next" = "the other one").
 o.bind("SUPER + U", "Focus other monitor", hl.dsp.focus({ monitor = "+1" }))
 o.bind("SUPER + SHIFT + U", "Move window to other monitor", hl.dsp.window.move({ monitor = "+1" }))
+
+-- Replaces Super+` (was: Toggle Quake console running `claude`) with a new
+-- T3 Code thread. t3code://new starts T3 if needed and opens a blank thread.
+o.rebind("SUPER + grave", "New T3 Code thread", "xdg-open t3code://new")
