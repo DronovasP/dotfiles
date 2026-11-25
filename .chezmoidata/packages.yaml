@@ -8,3 +8,8 @@ packages:
     - fzf
     - htop
     - lazygit
+  arch:
+    pacman:
+      - chezmoi
+    aur:
+      - vicinae-bin   # Raycast-style launcher (Alt+Space)

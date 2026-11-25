@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Re-runs whenever the package list changes.
+# packages hash: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
+set -euo pipefail
+
+{{ if and (eq .chezmoi.os "linux") (or (eq .chezmoi.osRelease.id "arch") (contains "arch" (.chezmoi.osRelease.idLike | default ""))) -}}
+sudo pacman -S --needed --noconfirm {{ range .packages.common }}{{ . }} {{ end }}{{ range .packages.arch.pacman }}{{ . }} {{ end }}
+
+if command -v yay >/dev/null; then
+  yay -S --needed --noconfirm {{ range .packages.arch.aur }}{{ . }} {{ end }}
+else
+  echo "yay not found; skipping AUR packages: {{ range .packages.arch.aur }}{{ . }} {{ end }}" >&2
+fi
+{{- else if eq .chezmoi.os "darwin" -}}
+brew install {{ range .packages.common }}{{ . }} {{ end }}
+{{- end }}

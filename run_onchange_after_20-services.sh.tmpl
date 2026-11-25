@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+{{ if eq .chezmoi.os "linux" -}}
+# Vicinae launcher server (Alt+Space is bound in ~/.config/hypr/bindings.lua).
+if systemctl --user cat vicinae.service >/dev/null 2>&1; then
+  systemctl --user enable --now vicinae.service
+fi
+if command -v hyprctl >/dev/null && [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+  hyprctl reload >/dev/null
+fi
+{{- end }}

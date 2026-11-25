@@ -1,0 +1,12 @@
+README.md
+
+{{ if ne .chezmoi.os "darwin" }}
+.config/aerospace
+{{ end }}
+
+{{ if ne .chezmoi.os "linux" }}
+.config/hypr
+{{ end }}
+
+# Omarchy uses its own shell/bar instead of waybar.
+.config/waybar

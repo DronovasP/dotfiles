@@ -1,0 +1,7 @@
+{{- $fontDir := ".local/share/fonts" -}}
+{{- if eq .chezmoi.os "darwin" }}{{ $fontDir = "Library/Fonts" }}{{ end -}}
+# Monocraft terminal font (prebuilt release; Nerd Font patched for icons).
+["{{ $fontDir }}/Monocraft.ttc"]
+    type = "file"
+    url = "https://github.com/IdreesInc/Monocraft/releases/download/v4.2.1/Monocraft-nerd-fonts-patched.ttc"
+    refreshPeriod = "720h"

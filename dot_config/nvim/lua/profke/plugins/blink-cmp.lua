@@ -1,4 +1,4 @@
-vim.pack.add({ 'saghen/blink.cmp', 'saghen/blink.lib' })
+vim.pack.add({ 'https://github.com/saghen/blink.cmp', 'https://github.com/saghen/blink.lib' })
 local cmp = require('blink.cmp')
 cmp.setup({
     keymap = {
