@@ -90,3 +90,25 @@ end
 -- Escape cancels a Handy dictation (Handy's own Escape shortcut doesn't fire).
 -- Non-consuming: Escape still reaches the focused app as usual.
 o.bind("Escape", "Cancel dictation (Handy)", "handy-cancel-if-recording", { non_consuming = true })
+
+-- Vim-style window navigation: Super + H/J/K/L focuses, Super + Shift + H/J/K/L
+-- swaps. Arrow keys still work. The defaults these keys displace move to:
+--   Super + ;         Cycle workspace layout   (was Super + L)
+--   Super + Alt + ;   Cycle workspace layout back (was Super + Alt + L)
+--   Super + \         Toggle window split      (was Super + J)
+--   Super + F1        Keybindings              (was Super + K)
+o.bind("SUPER + H", "Focus on left window", hl.dsp.focus({ direction = "l" }))
+o.rebind("SUPER + J", "Focus on below window", hl.dsp.focus({ direction = "d" }))
+o.rebind("SUPER + K", "Focus on above window", hl.dsp.focus({ direction = "u" }))
+o.rebind("SUPER + L", "Focus on right window", hl.dsp.focus({ direction = "r" }))
+
+o.bind("SUPER + SHIFT + H", "Swap window to the left", hl.dsp.window.swap({ direction = "l" }))
+o.bind("SUPER + SHIFT + J", "Swap window down", hl.dsp.window.swap({ direction = "d" }))
+o.bind("SUPER + SHIFT + K", "Swap window up", hl.dsp.window.swap({ direction = "u" }))
+o.bind("SUPER + SHIFT + L", "Swap window to the right", hl.dsp.window.swap({ direction = "r" }))
+
+hl.unbind("SUPER + ALT + L")
+o.bind("SUPER + semicolon", "Cycle workspace layout", "omarchy-hyprland-workspace-layout-toggle")
+o.bind("SUPER + ALT + semicolon", "Cycle workspace layout back", "omarchy-hyprland-workspace-layout-toggle back")
+o.bind("SUPER + backslash", "Toggle window split", hl.dsp.layout("togglesplit"))
+o.bind("SUPER + F1", "Keybindings", "omarchy-menu-keybindings")
